@@ -17,6 +17,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+use_inline_resources if defined?(use_inline_resources)
 
 # See https://msdn.microsoft.com/en-us/library/windows/desktop/cc307236%28v=vs.85%29.aspx for netsh info
 
@@ -29,8 +30,8 @@ def whyrun_supported?
 end
 
 action :create do
-  raise "No user property set" if @new_resource.user.nil? || @new_resource.user.empty?
-  
+  raise 'No user property set' if @new_resource.user.nil? || @new_resource.user.empty?
+
   if @current_resource.exists
     needsChange = (@current_resource.user.casecmp(@new_resource.user) != 0)
 
@@ -50,7 +51,7 @@ action :create do
 end
 
 action :delete do
-  if @current_resource.exists 
+  if @current_resource.exists
     converge_by("Deleting #{@current_resource.url}") do
       deleteAcl
     end
@@ -63,28 +64,29 @@ def load_current_resource
   @current_resource = Chef::Resource::WindowsHttpAcl.new(@new_resource.name)
   @current_resource.url(@new_resource.url)
 
-  @command = locate_sysnative_cmd("netsh.exe")
+  @command = locate_sysnative_cmd('netsh.exe')
   getCurrentAcl
 end
 
 private
-def getCurrentAcl()
+
+def getCurrentAcl
   cmd = shell_out!("#{@command} http show urlacl url=#{@current_resource.url}")
   Chef::Log.debug "netsh reports: #{cmd.stdout}"
 
-  m = cmd.stdout.scan(/User:\s*(\S+)/)
-  if m.length == 0
+  m = cmd.stdout.scan(/User:\s*(.+)/)
+  if m.empty?
     @current_resource.exists = false
   else
-    @current_resource.user(m[0][0])
+    @current_resource.user(m[0][0].chomp)
     @current_resource.exists = true
-  end    
+  end
 end
 
-def setAcl()
-  shell_out!("#{@command} http add urlacl url=#{@new_resource.url} user=#{@new_resource.user}")
+def setAcl
+  shell_out!("#{@command} http add urlacl url=#{@new_resource.url} user=\"#{@new_resource.user}\"")
 end
 
-def deleteAcl()
+def deleteAcl
   shell_out!("#{@command} http delete urlacl url=#{@new_resource.url}")
 end
