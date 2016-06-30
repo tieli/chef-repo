@@ -7,7 +7,6 @@ long_description 'Installs/Configures main'
 version          '0.1.0'
 
 depends 'apt', '~> 2.9.2'
-depends 'apache2', '~> 3.2.2'
 
 depends 'rvm'
 depends 'phantomjs'
