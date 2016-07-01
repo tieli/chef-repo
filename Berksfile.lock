@@ -27,7 +27,6 @@ GRAPH
   java (1.39.0)
     apt (>= 0.0.0)
   main (0.1.0)
-    apache2 (~> 3.2.2)
     apt (~> 2.9.2)
     phantomjs (>= 0.0.0)
     rvm (>= 0.0.0)
