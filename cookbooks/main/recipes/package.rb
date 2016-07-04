@@ -11,11 +11,11 @@ execute "update-upgrade" do
   action :run
 end
 
-pkgs = %w{screen firefox cloc subversion vim keychain
+pkgs = %w{screen firefox cloc subversion vim keychain apache2 apache2-utils
   python2.7-mysqldb python-dev build-essential libncurses5-dev
   libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev
   virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
-  openssl libssl-dev bum rcconf atom curl chrpath}
+  openssl libssl-dev bum rcconf atom curl chrpath htop tree par}
 
 pkgs.each do |pkg|
   package pkg do
@@ -23,5 +23,6 @@ pkgs.each do |pkg|
   end
 end
 
-include_recipe 'rvm'
 include_recipe 'phantomjs'
+include_recipe 'mysql::server'
+include_recipe 'mysql::client'

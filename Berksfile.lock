@@ -6,9 +6,7 @@ DEPENDENCIES
   nginx (~> 2.6)
   phantomjs (~> 1.0.3)
   poise-python (~> 1.4.0)
-  rvm
-    git: git://github.com/fnichol/chef-rvm.git
-    revision: eddd733694a1d3e0872f5692e8dda93aa2752791
+  rvm (~> 0.9.4)
 
 GRAPH
   7-zip (1.0.2)
@@ -24,10 +22,12 @@ GRAPH
   chocolatey (1.0.0)
     windows (~> 1.38)
   compat_resource (12.10.6)
-  java (1.39.0)
+  java (1.40.0)
     apt (>= 0.0.0)
+    windows (>= 0.0.0)
   main (0.1.0)
     apt (~> 2.9.2)
+    mysql (~> 5.6.3)
     phantomjs (>= 0.0.0)
     rvm (>= 0.0.0)
   mysql (5.6.3)
@@ -57,10 +57,10 @@ GRAPH
     compat_resource (>= 0.0.0)
   runit (1.7.8)
     packagecloud (>= 0.0.0)
-  rvm (0.10.1)
+  rvm (0.9.4)
     chef_gem (>= 0.0.0)
     java (>= 0.0.0)
-  windows (1.44.0)
+  windows (1.44.1)
     chef_handler (>= 0.0.0)
   yum (3.11.0)
   yum-epel (0.7.0)

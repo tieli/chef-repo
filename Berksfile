@@ -1,6 +1,6 @@
 source 'https://supermarket.chef.io'
 
-cookbook 'rvm', github: 'fnichol/chef-rvm'
+cookbook 'rvm', '~> 0.9.4'
 
 cookbook "mysql", '~> 5.6.3'
 cookbook "nginx", "~> 2.6"
