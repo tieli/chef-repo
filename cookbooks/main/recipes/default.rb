@@ -29,15 +29,6 @@ include_recipe 'main::package'
 # end
 #
 
-# update rc files
-rc_files = %w{.bashrc .bash_aliases .ansible.cfg .gemrc .irbrc .railsrc .screenrc}
-rc_files.each do |file|
-   template "/home/#{node[:user][:name]}/#{file}" do
-     erb_file = file[1..-1]
-     source "#{erb_file}.erb"
-   end
-end
-
 bash "append_to_hosts" do
   user "root"
   code <<-EOF
