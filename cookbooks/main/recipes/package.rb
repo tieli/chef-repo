@@ -11,11 +11,18 @@ execute "update-upgrade" do
   action :run
 end
 
-pkgs = %w{screen firefox cloc subversion vim keychain apache2 apache2-utils
-  python2.7-mysqldb python-dev build-essential libncurses5-dev
-  libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev
-  virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
-  openssl libssl-dev bum rcconf atom curl chrpath htop tree par}
+pkg_libs = %w{libncurses5-dev libfreetype6 libfreetype6-dev
+              libfontconfig1 libfontconfig1-dev
+              openssl libssl-dev}
+
+pkg_utils = %w{bum rcconf atom curl chrpath htop tree par git
+              screen firefox cloc subversion vim keychain }
+
+pkgs_apps = %w{apache2 apache2-utils python2.7-mysqldb python-dev
+              build-essential virtualbox-guest-dkms
+              virtualbox-guest-utils virtualbox-guest-x11}
+
+pkgs = pkg_libs + pkg_utils + pkgs_apps
 
 pkgs.each do |pkg|
   package pkg do
