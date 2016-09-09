@@ -26,6 +26,7 @@ GRAPH
     apt (>= 0.0.0)
     windows (>= 0.0.0)
   main (0.1.0)
+    apache2 (~> 3.2.2)
     apt (~> 2.9.2)
     mysql (~> 5.6.3)
     phantomjs (>= 0.0.0)

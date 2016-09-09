@@ -1,6 +1,6 @@
 name             'main'
-maintainer       'YOUR_NAME'
-maintainer_email 'YOUR_EMAIL'
+maintainer       'Tiejun Li'
+maintainer_email 'tiejli@yahoo.com'
 license          'All rights reserved'
 description      'Installs/Configures main'
 long_description 'Installs/Configures main'
@@ -11,3 +11,4 @@ depends 'mysql', '~> 5.6.3'
 
 depends 'rvm'
 depends 'phantomjs'
+depends 'apache2', '~> 3.2.2'

@@ -6,28 +6,29 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+#################
+# Create user tli
+#################
 
-################
+group node[:group][:name] do
+  action :create
+  gid node[:group][:gid]
+  group_name node[:group][:name]
+end
+
+user node[:user][:name] do
+  comment "user tli"
+  password node[:user][:password]
+  uid node[:user][:uid]
+  gid node[:user][:gid]
+  home "/home/#{node[:user][:name]}"
+  shell node[:user][:shell]
+  supports manage_home: true
+end
+
+#################
 # Missing xfce4
-################
-
-include_recipe 'main::package'
-
-#################################################
-# install pythin virtualenv and other packages
-# Not working
-#################################################
-
-# include_recipe 'poise-python'
-#
-# #python_runtime '2'
-#
-# #python_virtualenv '/home/vagrant/venv'
-#
-# python_pip 'Django' do
-#    version '1.9'
-# end
-#
+#################
 
 bash "append_to_hosts" do
   user "root"
@@ -40,3 +41,17 @@ bash "append_to_hosts" do
     echo "10.0.0.11 chef12 chef12.silkstyle.com" >> /etc/hosts
    EOF
 end
+
+###############################
+# Apache Server Configuration
+###############################
+
+group node['silkstyle']['group']
+
+user node['silkstyle']['user'] do
+  group node['silkstyle']['group']
+  system true
+  shell '/bin/bash'
+end
+
+include_recipe 'apache2'
