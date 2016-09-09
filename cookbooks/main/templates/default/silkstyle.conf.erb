@@ -1,0 +1,8 @@
+# Managed by Chef for <%= node['hostname'] %>
+
+Alias / <%= node['silkstyle']['document_root'] + '/' %>
+
+<Directory <%= node['silkstyle']['document_root'] %>>
+  Options FollowSymLinks Indexes
+  Require all granted
+</Directory>

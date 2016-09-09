@@ -6,6 +6,16 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+
+####################################
+# Need this for Apache Installation
+####################################
+
+execute "update-upgrade" do
+  command "apt-get update && apt-get upgrade -y"
+  action :run
+end
+
 #################
 # Create user tli
 #################
@@ -41,17 +51,3 @@ bash "append_to_hosts" do
     echo "10.0.0.11 chef12 chef12.silkstyle.com" >> /etc/hosts
    EOF
 end
-
-###############################
-# Apache Server Configuration
-###############################
-
-group node['silkstyle']['group']
-
-user node['silkstyle']['user'] do
-  group node['silkstyle']['group']
-  system true
-  shell '/bin/bash'
-end
-
-include_recipe 'apache2'
