@@ -17,7 +17,9 @@ default['mysql']['data_dir'] = 'rootpass'
 default['mysql']['port'] = '3306'
 
 default['silkstyle']['database']['host'] = '127.0.0.1'
-default['silkstyle']['database']['username'] = 'root'
+default['silkstyle']['database']['root_username'] = 'root'
 default['silkstyle']['database']['root_password'] = 'rootpass'
 
+default['silkstyle']['database']['username'] = 'root'
+default['silkstyle']['database']['password'] = 'rootpass'
 default['silkstyle']['database']['dbname'] = 'silkstyle'
