@@ -1,8 +1,26 @@
-# Managed by Chef for <%= node['hostname'] %>
+<VirtualHost *:80>
+  ServerName <%= node['hostname'] %>
+  ServerAdmin 'ops@example.com'
 
-Alias / <%= node['silkstyle']['document_root'] + '/' %>
+  DocumentRoot <%= node['silkstyle']['document_root'] %>
+  <Directory "/">
+          Options FollowSymLinks
+          AllowOverride None
+  </Directory>
+  <Directory <%= node['silkstyle']['document_root'] %> >
+          Options Indexes FollowSymLinks MultiViews
+          AllowOverride None
+          Require all granted
+  </Directory>
 
-<Directory <%= node['silkstyle']['document_root'] %>>
-  Options FollowSymLinks Indexes
-  Require all granted
-</Directory>
+  ErrorLog /var/log/apache2/error.log
+
+  LogLevel warn
+
+  CustomLog /var/log/apache2/access.log combined
+  ServerSignature Off
+
+  AddType application/x-httpd-php .php
+  AddType application/x-httpd-php-source .phps
+  DirectoryIndex index.php index.html
+</VirtualHost>

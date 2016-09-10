@@ -11,7 +11,8 @@ depends 'mysql', '~> 8.0.2'
 
 depends 'rvm'
 depends 'phantomjs'
-depends 'apache2', '~> 3.2.2'
+
+depends 'httpd', '~> 0.4.0'
 
 depends 'database', '~> 5.1.2'
 depends 'mysql2_chef_gem', '~> 1.1.0'
