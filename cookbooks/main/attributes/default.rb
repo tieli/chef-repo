@@ -20,6 +20,6 @@ default['silkstyle']['database']['host'] = '127.0.0.1'
 default['silkstyle']['database']['root_username'] = 'root'
 default['silkstyle']['database']['root_password'] = 'rootpass'
 
-default['silkstyle']['database']['username'] = 'root'
-default['silkstyle']['database']['password'] = 'rootpass'
+default['silkstyle']['database']['admin_username'] = 'silkstyle'
+default['silkstyle']['database']['admin_password'] = 'silkstyle'
 default['silkstyle']['database']['dbname'] = 'silkstyle'
