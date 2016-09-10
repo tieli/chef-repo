@@ -9,3 +9,15 @@ default['silkstyle']['group'] = 'silkstyle'
 default['silkstyle']['name'] = 'silkstyle'
 default['silkstyle']['config'] = 'silkstyle.conf'
 default['silkstyle']['document_root'] = '/var/www/silkstyle'
+
+default['mysql']['server_root_password'] = 'rootpass'
+default['mysql']['server_debian_password'] = 'debpass'
+default['mysql']['server_repl_password'] = 'replpass'
+default['mysql']['data_dir'] = 'rootpass'
+default['mysql']['port'] = '3306'
+
+default['silkstyle']['database']['host'] = '127.0.0.1'
+default['silkstyle']['database']['username'] = 'root'
+default['silkstyle']['database']['root_password'] = 'rootpass'
+
+default['silkstyle']['database']['dbname'] = 'silkstyle'

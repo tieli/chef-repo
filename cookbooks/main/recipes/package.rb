@@ -33,6 +33,3 @@ pkgs.each do |pkg|
     action :install
   end
 end
-
-include_recipe 'mysql::server'
-include_recipe 'mysql::client'
