@@ -6,8 +6,8 @@ description      'Installs/Configures main'
 long_description 'Installs/Configures main'
 version          '1.0.0'
 
-depends 'apt', '~> 2.9.2'
-depends 'mysql', '~> 8.0.2'
+depends 'apt', '~> 4.0.2'
+depends 'mysql', '~> 8.0'
 
 depends 'rvm'
 depends 'phantomjs'

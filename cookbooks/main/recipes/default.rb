@@ -51,3 +51,9 @@ bash "append_to_hosts" do
     echo "10.0.0.11 chef12 chef12.silkstyle.com" >> /etc/hosts
    EOF
 end
+
+##################
+#
+##################
+
+include_recipe 'apt::default'

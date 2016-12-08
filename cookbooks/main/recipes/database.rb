@@ -1,6 +1,6 @@
 
-# include_recipe 'mysql::server'
-# include_recipe 'mysql::client'
+#include_recipe 'mysql::server'
+#include_recipe 'mysql::client'
 
 # Configure the MySQL client.
 mysql_client 'default' do
@@ -61,3 +61,10 @@ execute "initialize #{node['silkstyle']['database']['dbname']} database" do
   command "mysql -h #{node['silkstyle']['database']['host']} -u #{node['silkstyle']['database']['admin_username']} -p#{node['silkstyle']['database']['admin_password']} -D #{node['silkstyle']['database']['dbname']} < #{create_tables_script_path}"
   not_if  "mysql -h #{node['silkstyle']['database']['host']} -u #{node['silkstyle']['database']['admin_username']} -p#{node['silkstyle']['database']['admin_password']} -D #{node['silkstyle']['database']['dbname']} -e 'describe customers;'"
 end
+
+# mysql_service 'default' do
+#   port '3306'
+#   version '5.5'
+#   initial_root_password 'password'
+#   action [:create, :start]
+# end

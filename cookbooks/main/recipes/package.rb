@@ -7,7 +7,8 @@ execute "add repo" do
 end
 
 execute "add repo php5" do
-  command "yes | sudo add-apt-repository ppa:ondrej/php5-5.6"
+  #command "yes | sudo add-apt-repository ppa:ondrej/php5-5.6"
+  command "yes | sudo add-apt-repository ppa:ondrej/php"
   action :run
 end
 
@@ -24,7 +25,7 @@ pkgs_apps = %w{python2.7-mysqldb python-dev python-software-properties
 
 pkg_php = %w{php5 php5-mysql php-gettext}
 
-pkg_utils = %w{rcconf curl htop tree par git screen firefox cloc subversion vim keychain }
+pkg_utils = %w{rcconf curl htop tree par git screen firefox cloc subversion vim keychain xterm xorg keychain nodejs }
 
 pkgs = pkg_libs + pkg_utils + pkgs_apps + pkg_php
 
