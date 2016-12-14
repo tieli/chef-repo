@@ -1,6 +1,7 @@
 DEPENDENCIES
   apt (~> 4.0.2)
   database (~> 5.1.2)
+  firewall (~> 2.5.3)
   httpd (~> 0.4.0)
   main
     path: cookbooks/main
@@ -17,12 +18,15 @@ GRAPH
     compat_resource (>= 12.14)
     mingw (>= 1.1)
     seven_zip (>= 0.0.0)
+  chef-sugar (3.4.0)
   chef_gem (0.1.0)
   chocolatey (1.0.3)
     windows (>= 1.38)
   compat_resource (12.16.2)
   database (5.1.2)
     postgresql (>= 1.0.0)
+  firewall (2.5.3)
+    chef-sugar (>= 0.0.0)
   homebrew (2.1.2)
     build-essential (>= 2.1.2)
   httpd (0.4.4)
@@ -34,6 +38,7 @@ GRAPH
   main (1.0.0)
     apt (~> 4.0.2)
     database (~> 5.1.2)
+    firewall (~> 2.5.3)
     httpd (~> 0.4.0)
     mysql (~> 8.0)
     mysql2_chef_gem (~> 1.1.0)

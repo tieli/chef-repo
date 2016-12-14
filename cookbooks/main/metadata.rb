@@ -16,3 +16,4 @@ depends 'httpd', '~> 0.4.0'
 
 depends 'database', '~> 5.1.2'
 depends 'mysql2_chef_gem', '~> 1.1.0'
+depends 'firewall', '~> 2.5.3'

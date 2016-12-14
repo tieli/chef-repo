@@ -14,3 +14,4 @@ cookbook 'database', '~> 5.1.2'
 
 cookbook 'httpd', '~> 0.4.0'
 cookbook 'apt', '~> 4.0.2'
+cookbook 'firewall', '~> 2.5.3'

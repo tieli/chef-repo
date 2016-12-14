@@ -23,3 +23,6 @@ default['silkstyle']['database']['root_password'] = 'rootpass'
 default['silkstyle']['database']['admin_username'] = 'silkstyle'
 default['silkstyle']['database']['admin_password'] = 'silkstyle'
 default['silkstyle']['database']['dbname'] = 'silkstyle'
+
+default['firewall']['allow_ssh'] = true
+default['silkstyle']['open_ports'] = 80

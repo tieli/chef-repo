@@ -23,7 +23,7 @@ pkg_libs = %w{libncurses5-dev libfreetype6 libfreetype6-dev libfontconfig1
 pkgs_apps = %w{python2.7-mysqldb python-dev python-software-properties
   build-essential virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11}
 
-pkg_php = %w{php5 php5-mysql php-gettext}
+pkg_php = %w{php5 php5-mysql php-gettext php7.0-zip php-mbstring }
 
 pkg_utils = %w{rcconf curl htop tree par git screen firefox cloc subversion vim keychain xterm xorg keychain nodejs }
 
